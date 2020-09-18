@@ -1,0 +1,38 @@
+# depslib dependency file v1.0
+1598881861 source:/media/sebastian/Data/Uni/Semester6/BA/src/TabuSearch/TabuSearch/transAPX.c
+	<stdio.h>
+	<stdlib.h>
+	<sys/types.h>
+	<string.h>
+	<regex.h>
+	<stdbool.h>
+
+1598536747 source:/media/sebastian/Data/Uni/Semester6/BA/src/TabuSearch/TabuSearch/formArg_collection.c
+	<stdlib.h>
+	<stdio.h>
+	<string.h>
+	<stdbool.h>
+	<time.h>
+
+1598880913 source:/media/sebastian/Data/Uni/Semester6/BA/src/TabuSearch/TabuSearch/main.c
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	"transAPX.h"
+	"formArg_collection.h"
+	<string.h>
+	<time.h>
+
+1588942432 /media/sebastian/Data/Uni/Semester6/BA/src/TabuSearch/TabuSearch/transAPX.h
+
+1590307191 /media/sebastian/Data/Uni/Semester6/BA/src/TabuSearch/TabuSearch/formArg_collection.h
+
+1598896747 source:/media/sebastian/Data/Uni/Semester6/BA/src/TabuSearch/TabuSearch/ts.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<stdbool.h>
+	<math.h>
+	<time.h>
+	"formArg_collection.h"
+
