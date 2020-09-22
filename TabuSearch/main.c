@@ -28,10 +28,7 @@ int createNewSol(char*** currSol, char**** neighbors, char***** arr, int currSol
 int execTS(char***** arr, int argcnt, int arrLen[argcnt][3], char*** initialSol, int initialSolLen, int* tabu, int tabuLen, int tabuSize,
                 int maxIteration, char* problemStr, char* semanticStr, int min_random, int max_random, double threshold_random, int maxDef, int maxDel, int maxPossAtt);
 
-void exitfunc(int sig)
-{
-    _exit();
-}
+
 int main(int argc, char* argv[])
 {
 
@@ -98,9 +95,6 @@ int main(int argc, char* argv[])
     FILE *fp;
     fp = fopen(fileLoc, "r");
 
-    //fp = fopen("/media/sebastian/Data/Uni/Semester6/BA/A-1-admbuster_1000.apx", "r");
-    //fp = fopen("/media/sebastian/Data/Uni/Semester6/BA/seb6.apx", "r");
-    //File file = new File("/home/sebastian/Desktop/A-1-admbuster_1000.apx");
     char* **argarrayPoint;//argments is an string array
     char* ***attarrayPoint;//attackers is an array of string arrays
     int argcnt = 0;
@@ -184,7 +178,7 @@ for(int i = 0; i < attcnt; i++)
     {
         initialSol = NULL;
         initialSolLen = 0;
-        tabu = malloc(sizeof(int)); //malloc(extSize * sizeof(int));
+        tabu = malloc(sizeof(int));
         tabuLen = 0;
     }
 
@@ -193,7 +187,7 @@ for(int i = 0; i < attcnt; i++)
         initialSol = malloc(sizeof(char*));
         initialSol[0] = checkArgs;
         initialSolLen = 1;
-        tabu = malloc(sizeof(int)); //malloc(extSize * sizeof(int));
+        tabu = malloc(sizeof(int));
         tabuLen = 0;
     }
 
@@ -206,7 +200,7 @@ for(int i = 0; i < attcnt; i++)
     {
         initialSol = NULL;
         initialSolLen = 0;
-        tabu = malloc(sizeof(int)); //malloc(extSize * sizeof(int));
+        tabu = malloc(sizeof(int));
         tabuLen = 1;
         tabu[0] = findArg(checkArgs, &arr, argcnt) + 1;
         result = execTS(&arr, argcnt, len, &initialSol, initialSolLen, tabu, tabuLen, tabuSize, itCnt, "blub", sem, min_random, max_random, 0.5, maxDef, maxDel, maxPossAtt);
