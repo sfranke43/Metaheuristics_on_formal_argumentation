@@ -101,9 +101,7 @@ double complete(char*** ext, char***** arr, int extLen, int argcnt, int arrLen[a
 
     if(extLen == 0)
         return 0;
-    //if the extension is not admissable the quality is zero
-    //if(conflictFree(ext, arr, extLen, argcnt, arrLen, punish, realQual) < 1.0)
-    //   return 0.0;
+
     char** attSol = NULL;
     int attSolLen = 0;
 
@@ -129,8 +127,7 @@ double complete(char*** ext, char***** arr, int extLen, int argcnt, int arrLen[a
 */
 double preferred(char*** ext, char***** arr, int extLen, int argcnt, int arrLen[argcnt][3], int punish, double* realQual)
 {
-    //if(conflictFree(ext, arr, extLen, argcnt, arrLen, punish, realQual) < 1.0)
-    //    return 0.0;
+
     *realQual = complete(ext, arr, extLen, argcnt, arrLen, punish, realQual);
     double result = conflictFree(ext, arr, extLen, argcnt, arrLen, punish, realQual)*(((extLen / argcnt) + *realQual * punish) / (punish + 2));
     *realQual = conflictFree(ext, arr, extLen, argcnt, arrLen, punish, realQual)*(((extLen / argcnt) + (*realQual)) / 2);
@@ -145,8 +142,7 @@ double preferred(char*** ext, char***** arr, int extLen, int argcnt, int arrLen[
 */
 double grounded(char*** ext, char***** arr, int extLen, int argcnt, int arrLen[argcnt][3], int punish, double* realQual)
 {
-    //if(conflictFree(ext, arr, extLen, argcnt, arrLen, punish, realQual) < 1.0)
-    //    return 0.0;
+
     *realQual = complete(ext, arr, extLen, argcnt, arrLen, punish, realQual);
     double result = (1-(extLen / argcnt) + *realQual * punish) / (punish + 2);
     *realQual = (1-(extLen / argcnt) + (*realQual)) / 2;
@@ -157,8 +153,7 @@ double grounded(char*** ext, char***** arr, int extLen, int argcnt, int arrLen[a
 double stable(char*** ext, char***** arr, int extLen, int argcnt, int arrLen[argcnt][3], int punish, double* realQual)
 {
 
-    //if(conflictFree(ext, arr, extLen, argcnt, arrLen, punish, realQual) < 1.0)
-    //    return 0.0;
+
 
     *realQual = complete(ext, arr, extLen, argcnt, arrLen, punish, realQual);
     char** attSol = NULL;
@@ -370,7 +365,7 @@ int defend(char*** def, char***** arr, char*** att, int* defLen, int attLen, int
         double check = isSubset(&attCurr, att, arrLen[i][2], attLen);
         if(arrLen[i][2] == 0 || check- 1.0f < 0.00000001f && check - 1.0f >= 0.0f)//if check == 0 or if there are no attackers on an argument
         {
-            //printf("\ncheck for %s (%d) is: %lf", (*arr)[i][0], i, check);
+
             *def = (char**)realloc(*def, (*defLen + 1)* sizeof(char*));//allocate space for one more char
             (*def)[*defLen] = (*arr)[i][0];
             (*defLen)++;
@@ -503,9 +498,7 @@ int myRandom(int lower, int upper, int* tabu, int tabuLen)
 int oneNewSol(int rand1, int*curAct, char*** currSol, char*** newSol, char***** arr, int currSolLen, int* newSolLen, int argcount,
                     int arrLen[argcount][3], double* realQualOfBest, char* semantic, double punish, int* tabu, int tabuLen)
 {
-        //printf("\nrand1 = %d", rand1);
-        //for(int i = 0; i<tabuLen; i++)
-          //    printf("\ntabu[%d] = %d", i, tabu[i]);
+
         char* randArg;
         randArg = (char*)(((*arr)[rand1])[0]);
         /**check if the argument is already in the current solution*/
@@ -640,7 +633,6 @@ int createNewSol(char*** currSol, char**** neighbors, char***** arr, int currSol
             double* realQual;
             realQual = malloc(sizeof(double));
 
-            //curQuality = quality(newSol, arr, (*newSolLen), argcount, arrLen, problem, semantic, punish, realQual);
 
             double confFree = conflictFree(newSol, arr, (*newSolLen), argcount, arrLen, punish, realQual);
 
@@ -819,7 +811,6 @@ int createNewSol(char*** currSol, char**** neighbors, char***** arr, int currSol
         //do nothing
         else
         {
-            //printf("\ndontUse: %d", rand3pos);
         }
         cnt++;
 

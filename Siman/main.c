@@ -40,7 +40,8 @@ int main(int argc, char* argv[])
     }
     if(strcmp(argv[1], "--problems") == 0)
     {
-        printf("[ein paar Probleme, aber noch lange nicht alle, lol]");
+        printf("[DC-CO, DC-PR, DC-ST, DS-CO, DS-PR, DS-ST, SE-CO, SE-ST]");
+
         return 0;
     }
 
@@ -104,9 +105,7 @@ int main(int argc, char* argv[])
     FILE *fp;
     fp = fopen(fileLoc, "r");
 
-    //fp = fopen("/media/sebastian/Data/Uni/Semester6/BA/A-1-admbuster_1000.apx", "r");
-    //fp = fopen("/media/sebastian/Data/Uni/Semester6/BA/seb6.apx", "r");
-    //File file = new File("/home/sebastian/Desktop/A-1-admbuster_1000.apx");
+
     char* **argarrayPoint;//argments is an string array
     char* ***attarrayPoint;//attackers is an array of string arrays
     int argcnt = 0;
@@ -190,7 +189,7 @@ for(int i = 0; i < attcnt; i++)
     {
         initialSol = NULL;
         initialSolLen = 0;
-        tabu = malloc(sizeof(int)); //malloc(extSize * sizeof(int));
+        tabu = malloc(sizeof(int));
         tabuLen = 0;
     }
 
@@ -199,10 +198,10 @@ for(int i = 0; i < attcnt; i++)
         initialSol = malloc(sizeof(char*));
         initialSol[0] = checkArgs;
         initialSolLen = 1;
-        tabu = malloc(sizeof(int)); //malloc(extSize * sizeof(int));
+        tabu = malloc(sizeof(int));
         tabuLen = 0;
     }
-printf("Hi");
+
 printf("\n");
     int result = execSimAn(&arr, argcnt, len, &initialSol, initialSolLen, tabu, tabuLen, itCnt, coolChoice, decrease, "blub", sem, min_random, max_random, 0.5, maxDef, maxDel, maxPossAtt);
 
@@ -210,7 +209,7 @@ printf("\n");
     {
         initialSol = NULL;
         initialSolLen = 0;
-        tabu = malloc(sizeof(int)); //malloc(extSize * sizeof(int));
+        tabu = malloc(sizeof(int));
         tabuLen = 1;
         tabu[0] = findArg(checkArgs, &arr, argcnt) + 1;
         result = execSimAn(&arr, argcnt, len, &initialSol, initialSolLen, tabu, tabuLen, itCnt, coolChoice, decrease, "blub", sem, min_random, max_random, 0.5, maxDef, maxDel, maxPossAtt);
@@ -224,4 +223,4 @@ printf("\n");
 
     return 0;
 }
-///home/sebastian/Desktop/A-1-admbuster_1000.apx"
+
